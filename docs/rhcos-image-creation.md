@@ -9,7 +9,7 @@ Depending on your environment you can follow one of the options to create RHCOS 
 
 1. Download the RHCOS image from [latest stable](https://mirror.openshift.com/pub/openshift-v4/ppc64le/dependencies/rhcos/latest/rhcos-openstack.ppc64le.qcow2.gz) OR [pre-release](https://mirror.openshift.com/pub/openshift-v4/ppc64le/dependencies/rhcos/pre-release/latest/rhcos-openstack.ppc64le.qcow2.gz) on a system with public internet access.
 You'll need a way to transfer this image to a RHEL VM that you'll create in the next step.
-2. Login to PowerVC and create a RHEL 8.x VM having an additional empty volume with minimum size of 120G. **Please make a note of the new volume name**.
+2. Login to PowerVC and create a RHEL image. Choose the one that says exactly "rhel", the others don't work. Create it having an additional empty volume with minimum size of 120G. **Please make a note of the new volume name**.
 3. Login to the VM and execute the following steps
    1. Install `wget`, `qemu-img`, `parted` and `gzip` packages
    2. Transfer the downloaded RHCOS image to this VM
