@@ -10,7 +10,7 @@ Depending on your environment you can follow one of the options to create RHCOS 
 1. Download the RHCOS image from [latest stable](https://mirror.openshift.com/pub/openshift-v4/ppc64le/dependencies/rhcos/latest/rhcos-openstack.ppc64le.qcow2.gz) OR [pre-release](https://mirror.openshift.com/pub/openshift-v4/ppc64le/dependencies/rhcos/pre-release/latest/rhcos-openstack.ppc64le.qcow2.gz) on a system with public internet access.
 You'll need a way to transfer this image to a RHEL VM that you'll create in the next step.
 2. Login to PowerVC and create a RHEL image. Choose the one that says exactly "rhel", the others don't work. Create it having an additional empty volume with minimum size of 120G. **Please make a note of the new volume name**.
-3. Login to the VM and execute the following steps
+3. Login to the VM and execute the following steps, or run the script I have created machineSetup.sh
    1. Install `wget`, `qemu-img`, `parted` and `gzip` packages
    2. Transfer the downloaded RHCOS image to this VM
    3. Extract the image
@@ -33,13 +33,13 @@ You'll need a way to transfer this image to a RHEL VM that you'll create in the 
       ```
       where `${empty_disk_device}` is the device representing the attached volume
 
-4. Detach the volume, from the VM
+4. Detach the volume, from the VM, from the powervc ui
 
 5. Go to PowerVC UI->images and select **create** for creating a new image
 
-6. Specify `image name` and choose `PowerVM` for Hypervisor type, `RHEL` for Operating system and `littleEndian` for Endianness
+6. Specify `image name` and choose `PowerVM` for Hypervisor type (if the option exists), `RHEL` for Operating system and `littleEndian` for Endianness
 
-7.  Select **Add Volume** and search for the specific volume name (where you dd-ed the RHCOS image ) and set **Boot set** to yes.
+7.  Select **Add Volume** and search for the specific volume name (where you dd-ed the RHCOS image ) and set **Boot set** to yes (or set boot order to 0).
 
 8.  Create the image by clicking on **create**
 
