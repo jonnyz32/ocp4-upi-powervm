@@ -28,6 +28,11 @@ All further instructions assumes you are in the code directory eg. `ocp4-upi-pow
 Update the [var.tfvars](../var.tfvars) based on your environment. Description of the variables are available in [var.tfvars-doc](./var.tfvars-doc.md).
 You can use environment variables for sensitive data that should not be saved to disk.
 
+When setting up the oc cluster details, make sure the ip's you specified are within the network you chose, specified by network_name. If you need an ip outside of the network,
+you can add it on power vc, by editing the network. Make sure the ip's you choose are all available.
+
+For the ssh_key, make sure you copy the file directly, and not copy/paste.
+
 ```
 $ set +o history
 $ export POWERVC_USERNAME=xxxxxxxxxxxxxxx
